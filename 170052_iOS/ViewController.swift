@@ -10,20 +10,73 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var label: UILabel!
-    var labelString: String = "0"
+    @IBOutlet weak var resultLabel: UILabel!
+    var firstNumberText = ""
+    var secondNumberText = ""
+    var op = ""
+    var isFirstNumber = true
+    var hasOp = false
+    var canClear = true
     
-    func updateLabel()  {
-        label.text=labelString
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
     }
-
-    @IBAction func pressedNumber(_ sender: UIButton) {
-        guard let stringVal: String = sender.titleLabel?.text else {
-            label.text = "Error"
-            return
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func handleButtonPress(_ sender: UIButton) {
+        if canClear {
+            resultLabel.text = ""
+            canClear = false
         }
-        labelString = stringVal
-        updateLabel()
+        let currentText = resultLabel.text!
+        let textLabel = sender.titleLabel?.text
+        if let text = textLabel {
+            switch text {
+            case "+", "*", "/", "-":
+                if hasOp {
+                    return
+                }
+                op = text
+                isFirstNumber = false
+                hasOp = true
+                resultLabel.text = "\(currentText) \(op) "
+                break
+            case "=":
+                isFirstNumber = true
+                hasOp = false
+                canClear = true
+                let result = calculate()
+                resultLabel.text = "\(result)"
+                break
+            default:
+                if isFirstNumber {
+                    firstNumberText = "\(firstNumberText)\(text)"
+                } else {
+                    secondNumberText = "\(secondNumberText)\(text)"
+                }
+                resultLabel.text = "\(currentText)\(text)"
+                break;
+            }
+        }
+    }
+    
+    func calculate() -> Double {
+        let firstNumber = Double(firstNumberText)!
+        let secondNumber = Double(secondNumberText)!
+        firstNumberText = ""
+        secondNumberText = ""
+        switch op {
+        case "+": return firstNumber + secondNumber
+        case "-": return firstNumber - secondNumber
+        case "*": return firstNumber * secondNumber
+        case "/": return firstNumber / secondNumber
+        case "C": return 0
+        default: return 0 }
     }
 }
 
