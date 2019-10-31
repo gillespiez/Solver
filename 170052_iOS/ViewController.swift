@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     var isFirstNumber = true
     var hasOp = false
     var canClear = true
+    var memoryValueText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +54,16 @@ class ViewController: UIViewController {
                 let result = calculate()
                 resultLabel.text = "\(result)"
                 break
+            case "C":
+                resultLabel.text = " "
+                break
+            case "+/-":
+               var firstNumber = Double(firstNumberText)!
+               firstNumber.negate()
+                break
+            case "M":
+                
+                break
             default:
                 if isFirstNumber {
                     firstNumberText = "\(firstNumberText)\(text)"
@@ -68,6 +79,7 @@ class ViewController: UIViewController {
     func calculate() -> Double {
         let firstNumber = Double(firstNumberText)!
         let secondNumber = Double(secondNumberText)!
+        
         firstNumberText = ""
         secondNumberText = ""
         switch op {
@@ -75,7 +87,7 @@ class ViewController: UIViewController {
         case "-": return firstNumber - secondNumber
         case "*": return firstNumber * secondNumber
         case "/": return firstNumber / secondNumber
-        case "C": return 0
+        
         default: return 0 }
     }
 }

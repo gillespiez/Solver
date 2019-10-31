@@ -259,6 +259,9 @@
                                         <state key="normal" title="M">
                                             <color key="titleColor" red="0.63921568627450975" green="0.086274509803921567" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="handleButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MF5-2g-hM2"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k7m-kH-yld">
                                         <rect key="frame" x="112" y="432" width="82" height="98"/>
@@ -288,15 +291,15 @@
                                             <action selector="handleButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="29a-bg-Q4Z"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xjr-hX-9Jf">
-                                        <rect key="frame" x="306" y="324" width="82" height="98"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xjr-hX-9Jf">
+                                        <rect key="frame" x="306" y="324" width="82" height="196"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="206" id="QcR-pw-5VP"/>
                                             <constraint firstAttribute="width" constant="82" id="vRA-Mq-6Yr"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                         <state key="normal" title="=">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" red="0.058823529409999999" green="0.64705882349999999" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="handleButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L0d-OX-d6m"/>
